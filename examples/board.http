@@ -1,0 +1,26 @@
+@base = http://127.0.0.1:3000
+
+### 상태
+GET {{base}}/health
+
+### 회원가입
+POST {{base}}/api/auth/signup
+Content-Type: application/json
+
+{
+  "email": "mina@example.com",
+  "password": "password123",
+  "nickname": "mina"
+}
+
+### 로그인
+POST {{base}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "mina@example.com",
+  "password": "password123"
+}
+
+### 글 목록
+GET {{base}}/api/posts?q=&page=1&limit=10&sort=-createdAt

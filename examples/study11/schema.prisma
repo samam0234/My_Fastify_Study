@@ -1,0 +1,33 @@
+// 이 파일은 Prisma를 쓸 때 스키마가 어떻게 보이는지 비교하는 참고 예제다.
+// 기본 실행 경로는 src/db의 SQL 어댑터다. prisma generate는 하지 않는다.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  nickname     String
+  createdAt    String   @map("created_at")
+  posts        Post[]
+  @@map("users")
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  authorId  Int      @map("author_id")
+  title     String
+  body      String
+  tags      String
+  createdAt String   @map("created_at")
+  updatedAt String   @map("updated_at")
+  author    User     @relation(fields: [authorId], references: [id])
+  @@map("posts")
+}

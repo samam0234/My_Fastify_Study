@@ -1,0 +1,97 @@
+:root {
+  color-scheme: light;
+  --ink: #1c1915;
+  --muted: #5e584f;
+  --paper: #f6f1e7;
+  --card: #fffdf8;
+  --line: #e2d8c8;
+  --accent: #0f6e56;
+  --warn: #8d2f23;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.top, main { width: min(880px, calc(100% - 2rem)); margin: 0 auto; }
+
+.top {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.mark {
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  background: var(--ink);
+  color: #f5c400;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+h1 { margin: 0; font-size: 1.8rem; }
+
+#health, .hint { color: var(--muted); }
+
+#notice {
+  width: min(880px, calc(100% - 2rem));
+  margin: 0.5rem auto;
+  white-space: pre-wrap;
+  color: var(--warn);
+  min-height: 1.2rem;
+}
+
+.card, article, form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0.8rem 0;
+}
+
+label { display: block; margin-top: 0.6rem; font-size: 0.92rem; }
+
+input, textarea, select, button {
+  font: inherit;
+  color: inherit;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+textarea { min-height: 7rem; }
+
+.row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+
+button {
+  margin-top: 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button.quiet { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+
+button:disabled { opacity: 0.6; cursor: wait; }
+
+article h2 { margin: 0 0 0.3rem; font-size: 1.1rem; }
+
+.meta { color: var(--muted); font-size: 0.9rem; }
+
+.pager { display: flex; gap: 0.5rem; align-items: center; }

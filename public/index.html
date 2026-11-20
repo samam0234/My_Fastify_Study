@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fastify 게시판</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <p class="mark">Fastify</p>
+    <div>
+      <h1>게시판</h1>
+      <p id="health">서버 상태를 확인하는 중입니다.</p>
+    </div>
+  </header>
+  <p id="notice" role="status"></p>
+  <main>
+    <section id="auth"></section>
+    <section id="board" hidden></section>
+  </main>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

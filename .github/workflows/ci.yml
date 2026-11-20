@@ -1,0 +1,26 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t fastify-study .
+  deploy:
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    needs: [test, docker]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "DEPLOY_ENABLED가 켜진 저장소에서만 실행됩니다. 실제 호스트 명령은 비밀을 설정한 뒤에 넣습니다."
